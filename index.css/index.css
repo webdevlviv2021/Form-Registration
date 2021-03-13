@@ -11,6 +11,7 @@ body {
     background-color: #f9fafb;
     font-family: 'open sans', sans-serif;
     display: flex;
+    align-items: center;
     justify-content: center;
     min-height: 100vh;
     margin: 0;
@@ -22,11 +23,11 @@ body {
     width: 400px;
 }
 .form {
-    padding: 39px 40px;
+    padding: 30px 40px;
 }
 h2 {
     text-align: center;
-    margin: 0 0 2px;
+    margin: 0 0 20px;
 }
 .form-control {
     margin-bottom: 10px;
@@ -47,7 +48,7 @@ h2 {
     border-radius: 4px;
 }
 .form-control input:focus {
-    outline: 9;
+    outline: 0;
     border-color: #777;
 }
 .form-control.success input {
@@ -71,7 +72,7 @@ border-color: var(--error-color);
     background-color: #3498db;
     border:2px solid #3498db;
     border-radius: 4px;
-    color:#fff;
+    color:rgb(43, 7, 110);
     display: block;
     font-size: 16px;
     padding: 10px;
