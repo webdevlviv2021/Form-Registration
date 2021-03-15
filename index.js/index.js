@@ -7,6 +7,16 @@ const password2 = document.getElementById('password2');
 function showError(input, message) {
     const formControl = input.parentElement;
     formControl.className = 'form-control error';
+    const small = formControl.querySelector('small');
+    small.innerText = message;
+}
+function showSuccess(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
+}
+function isValidEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }
 form.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -15,5 +25,22 @@ form.addEventListener('submit', function(e) {
         showError(username, 'Username is reqiured');
     } else {
         showSuccess(username);
+    }
+    if(email.value === '') {
+        showError(email, 'Email is reqiured');
+    } else if(!isValidEmail(email.value)) {
+        showError(email, 'Email is not valid')
+    } else {
+        showSuccess(email);
+    }
+    if(password.value === '') {
+        showError(password, 'Password is reqiured');
+    } else {
+        showSuccess(password);
+    }
+    if(password2.value === '') {
+        showError(password2, 'Password 2 is reqiured');
+    } else {
+        showSuccess(password2);
     }
 })
